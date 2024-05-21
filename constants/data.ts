@@ -124,5 +124,5 @@ export const navItems: NavItem[] = [
     href: '/dashboard',
     icon: 'meditation',
     label: 'Dashboard'
-  },
+  }
 ];

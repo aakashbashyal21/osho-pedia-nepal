@@ -11,7 +11,7 @@ type Params = {
     };
 };
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-    
+
     const article = await getBlogBySlug(params?.slug);
 
     if (article) {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 url: absoluteUrl(params?.slug),
                 images: [
                     {
-                        url: ogUrl.toString(),
+                        url: `${image}`,
                         width: 1200,
                         height: 630,
                         alt: title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 card: "summary_large_image",
                 title: title,
                 description: description,
-                images: [ogUrl.toString()],
+                images: `${image}`,
             },
         }
     } else {
