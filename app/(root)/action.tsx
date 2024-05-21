@@ -5,7 +5,7 @@ import { GraphQLClient } from 'graphql-request';
 import Link from 'next/link';
 
 // Ensure HYGRAPH_ENDPOINT is set or provide a default value
-const endpoint = process.env.HYGRAPH_ENDPOINT || 'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clmbdr2lz0uof01uid2zma63e/master';
+const endpoint = process.env.HYGRAPH_ENDPOINT as string;
 const MAX_LIMIT = 8;
 
 //8, 1
