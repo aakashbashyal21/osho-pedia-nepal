@@ -35,7 +35,7 @@ export interface BlogItem {
   title: string;
   createdAt: string;
   urlSlug: string;
-  description: string
+  description: string;
 }
 export interface ArticleDetail {
   title: string;

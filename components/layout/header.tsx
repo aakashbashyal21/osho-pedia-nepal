@@ -5,6 +5,8 @@ import { UserNav } from './user-nav';
 import Link from 'next/link';
 import { Package2, Search } from 'lucide-react';
 import { Button } from '../ui/button';
+import Image from 'next/image';
+
 
 export default function Header() {
   return (
@@ -15,8 +17,8 @@ export default function Header() {
             className="flex items-center gap-1"
             href="/"
           >
-            <Package2 className="h-6 w-6" />
-            <span className="">ओशो पेडिया नेपाल</span>
+             <Image alt="Osho pedia nepal" src="/logo.svg" height="40" width="40"/> 
+            
           </Link>
         </div>
         <div className={cn('block lg:!hidden')}>

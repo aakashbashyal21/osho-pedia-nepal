@@ -20,6 +20,7 @@ export const getBlogList = async (page: number) => {
         image {
           url
         }
+        description
         urlSlug
         keywords
         title

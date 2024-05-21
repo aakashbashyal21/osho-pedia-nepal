@@ -38,10 +38,10 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
         return <div>No article to display</div>;
     }
     return (
-        <div className="px-8 pt-8">
-            <div className="max-w-4xl mx-auto">
-                <article className="mx-auto">
-                    <h1 className="text-3xl font-bold mb-4 text-center">{article.title}</h1>
+        <div className="container pt-8">
+            <div className="max-w-5xl mx-auto">
+                <article className="">
+                    <h1 className="text-6xl font-bold mb-4 text-center noto-sans-devanagari">{article.title}</h1>
                     {article.publishedBy && (
                         <div className="flex justify-center text-center">
                             <div className="">
@@ -53,8 +53,8 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                     <Separator className="my-4" />
 
                     {/* Render HTML content */}
-                    <div className="mt-8 p-4 prose md:prose-lg lg:prose-xl leading-relaxed dark:bg-gray-800 bg-gray-100 font-serif mb-4 dark:text-slate-100 dark:prose-strong:text-slate-400 dark:prose-em:text-slate-400">
-                        <img className="w-full bg-cover bg-center" src={article.image?.url} alt="Article Image" />
+                    <div className="mt-8 sm:prose-md md:prose-lg lg:prose-xl leading-relaxed noto-sans-devanagari mb-4 dark:text-slate-100 dark:prose-strong:text-slate-400 dark:prose-em:text-slate-400 prose-p:mb-2">
+                        {/* <img className="w-full bg-cover bg-center" src={article.image?.url} alt="Article Image" /> */}
                         <div className="prose-p:mb-2" dangerouslySetInnerHTML={{ __html: article.content.html }} />
                     </div>
                 </article>
@@ -67,6 +67,7 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                 </Link>
             </div>
         </div>
+
     );
 };
 
