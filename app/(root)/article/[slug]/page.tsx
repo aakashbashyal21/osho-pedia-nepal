@@ -11,43 +11,49 @@ type Params = {
     };
 };
 export async function generateMetadata({ params }: { params: { slug: string } }) {
+    
     const article = await getBlogBySlug(params?.slug);
 
-    const { title, description, image: { url: image } } = article;
+    if (article) {
+        const { title, description, image: { url: image } } = article;
+        const url = process.env.NEXT_PUBLIC_APP_URL;
 
-    const url = process.env.NEXT_PUBLIC_APP_URL;
+        const ogUrl = new URL(`${url}/api/og`)
+        ogUrl.searchParams.set("heading", "title");
+        ogUrl.searchParams.set("type", siteConfig.name)
+        ogUrl.searchParams.set("mode", "light")
 
-    const ogUrl = new URL(`${url}/api/og`)
-    ogUrl.searchParams.set("heading", "title");
-    ogUrl.searchParams.set("type", siteConfig.name)
-    ogUrl.searchParams.set("mode", "light")
+        console.log(ogUrl)
 
-    console.log(ogUrl)
-
-    return {
-        title: title,
-        description: description,
-        openGraph: {
+        return {
             title: title,
             description: description,
-            type: "article",
-            url: absoluteUrl(params?.slug),
-            images: [
-                {
-                    url: image,
-                    width: 1200,
-                    height: 630,
-                    alt: title,
-                },
-            ],
-        },
-        twitter: {
-            card: "summary_large_image",
-            title: title,
-            description: description,
-            images: [image],
-        },
+            openGraph: {
+                title: title,
+                description: description,
+                type: "article",
+                url: absoluteUrl(params?.slug),
+                images: [
+                    {
+                        url: image,
+                        width: 1200,
+                        height: 630,
+                        alt: title,
+                    },
+                ],
+            },
+            twitter: {
+                card: "summary_large_image",
+                title: title,
+                description: description,
+                images: [image],
+            },
+        }
+    } else {
+        // Handle the case where article is null...
     }
+
+
 }
 export default async function ArticleDetail({ params }: Params) {
 
