@@ -1,16 +1,12 @@
-// app/robots.ts  (App Router)
+import type { MetadataRoute } from 'next'
  
-import { MetadataRoute } from "next";
- 
-const robots: MetadataRoute.Robots = () => {
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: "/private/", // Disallow private routes
+      userAgent: '*',
+      allow: '/',
+      disallow: '/private/',
     },
     sitemap: `${process.env.NEXT_PUBLIC_APP_URL}sitemap.xml`,
-  };
-};
- 
-export default robots;
+  }
+}

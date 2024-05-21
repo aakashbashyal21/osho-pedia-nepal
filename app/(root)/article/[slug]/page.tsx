@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         const url = process.env.NEXT_PUBLIC_APP_URL;
 
         const ogUrl = new URL(`${url}/api/og`)
-        ogUrl.searchParams.set("heading", "title");
+        ogUrl.searchParams.set("heading", title);
         ogUrl.searchParams.set("type", siteConfig.name)
         ogUrl.searchParams.set("mode", "light")
         return {
