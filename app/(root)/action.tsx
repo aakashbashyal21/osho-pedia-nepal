@@ -27,7 +27,7 @@ export const getBlogList = async (page: number) => {
       }
     }
   `;
-
+  console.log(endpoint);
   const client = new GraphQLClient(endpoint);
   console.log(query);
   try {
