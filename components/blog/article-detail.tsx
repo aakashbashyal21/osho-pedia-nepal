@@ -41,9 +41,9 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
         <div className="px-8 pt-8">
             <div className="max-w-4xl mx-auto">
                 <article className="mx-auto">
-                    <h1 className="text-3xl font-bold mb-4">{article.title}</h1>
+                    <h1 className="text-3xl font-bold mb-4 text-center">{article.title}</h1>
                     {article.publishedBy && (
-                        <div className="flex justify-center">
+                        <div className="flex justify-center text-center">
                             <div className="">
                                 <p className="text-sm text-muted-foreground">{formatDate(article.createdAt)}</p>
                             </div>

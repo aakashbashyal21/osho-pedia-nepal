@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-
-import { getBlogList } from "@/app/(root)/action";
 import { BlogItem } from "@/types";
+import { getBlogList } from "@/data/action";
 
 let page = 2;
 

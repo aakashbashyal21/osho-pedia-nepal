@@ -2,6 +2,7 @@
 import { BlogArtwork } from '@/components/blog/blog';
 import { BlogItem, ArticleDetail } from '@/types';
 import { GraphQLClient } from 'graphql-request';
+
 import Link from 'next/link';
 
 // Ensure HYGRAPH_ENDPOINT is set or provide a default value
@@ -94,5 +95,28 @@ export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null>
 
   } catch (error) {
     throw new Error(`Error fetching blog by slug: ${error}`);
+  }
+};
+
+export const getAllBlogList = async () => {
+  const limit = 100; // Fixed limit
+
+  const query = `
+  query BlogLists($limit: Int!) {
+      blogLists( first: $limit,orderBy: publishedAt_DESC) {
+        urlSlug
+      }
+    }
+  `;
+  const client = new GraphQLClient(endpoint);
+  try {
+    const data = await client.request<{ blogLists: BlogItem[] }>(query, {
+      limit
+    });
+
+    return data.blogLists;
+
+  } catch (error) {
+    throw new Error(`Error fetching blog list: ${error}`);
   }
 };

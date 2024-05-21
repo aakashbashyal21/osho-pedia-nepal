@@ -14,11 +14,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 export interface Artwork {
   artist: string
 }
-import { getBlogList } from "./action";
 import { Separator } from '@/components/ui/separator';
 import LoadMore from '@/components/LoadMore';
 import { Hero } from '@/components/Hero';
 import Footer from '@/components/layout/footer';
+import { getBlogList } from '@/data/action';
 
 export default async function page() {
   const blogData = await getBlogList(1);

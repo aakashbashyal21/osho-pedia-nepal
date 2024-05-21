@@ -1,9 +1,9 @@
 
-import { getBlogBySlug } from "@/app/(root)/action";
 import BlogDetail from '@/components/blog/article-detail';
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
+import { getBlogBySlug } from '@/data/action';
 import { absoluteUrl } from "@/lib/utils";
 type Params = {
     params: {
