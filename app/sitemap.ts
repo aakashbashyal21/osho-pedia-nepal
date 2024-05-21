@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const posts = blogList.map(({ urlSlug }) => ({
-    url: `${URL}blog/${urlSlug}`,
+    url: `${URL}article/${urlSlug}`,
   }));
 
   return [...posts, ...pages];
