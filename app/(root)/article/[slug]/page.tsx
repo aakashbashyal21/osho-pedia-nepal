@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 url: absoluteUrl(params?.slug),
                 images: [
                     {
-                        url: image,
+                        url: ogUrl.toString(),
                         width: 1200,
                         height: 630,
                         alt: title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 card: "summary_large_image",
                 title: title,
                 description: description,
-                images: [image],
+                images: [ogUrl.toString()],
             },
         }
     } else {
