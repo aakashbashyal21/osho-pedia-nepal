@@ -13,7 +13,6 @@ export const getBlogList = async (page: number) => {
   const limit = MAX_LIMIT; // Fixed limit
 
   const skip = (page - 1) * limit; // Calculate the number of items to skip
-  console.log(skip);
   const query = `
   query BlogLists($limit: Int!, $skip: Int!) {
       blogLists( first: $limit, skip: $skip,orderBy: publishedAt_DESC) {
@@ -27,9 +26,7 @@ export const getBlogList = async (page: number) => {
       }
     }
   `;
-  console.log(endpoint);
   const client = new GraphQLClient(endpoint);
-  console.log(query);
   try {
     const data = await client.request<{ blogLists: BlogItem[] }>(query, {
       limit,

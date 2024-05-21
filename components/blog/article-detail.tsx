@@ -51,10 +51,11 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                     )}
 
                     <Separator className="my-4" />
-                    <img className="w-full bg-cover bg-center" src={article.image?.url} alt="Article Image" />
 
                     {/* Render HTML content */}
                     <div className="mt-8 p-4 prose md:prose-lg lg:prose-xl leading-relaxed dark:bg-gray-800 bg-gray-100 font-serif mb-4 dark:text-slate-100 dark:prose-strong:text-slate-400 dark:prose-em:text-slate-400">
+                    <img className="w-full bg-cover bg-center" src={article.image?.url} alt="Article Image" />
+
                         <div className="prose-p:mb-2" dangerouslySetInnerHTML={{ __html: article.content.html }} />
                     </div>
                 </article>

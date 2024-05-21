@@ -22,9 +22,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         ogUrl.searchParams.set("heading", "title");
         ogUrl.searchParams.set("type", siteConfig.name)
         ogUrl.searchParams.set("mode", "light")
-
-        console.log(ogUrl)
-
         return {
             title: title,
             description: description,
