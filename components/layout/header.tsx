@@ -40,7 +40,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button variant="ghost" className="">
+          <Button>
             <span>Login</span>
           </Button>
         </div>
