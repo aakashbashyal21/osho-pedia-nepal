@@ -15,7 +15,8 @@ async function BlogCardContainer() {
                         {blogData}
                         <LoadMore />
                     </div>
-                    <div className="hidden md:block lg:hidden"></div> {/* This empty div ensures the layout remains consistent */}
+                    {/*
+                    <div className="hidden md:block lg:hidden"></div>
                     <div className="grid auto-rows-max items-start gap-6 lg:gap-8 hidden md:block lg:col-span-1">
                         <Card x-chunk="dashboard-07-chunk-3" className="hidden lg:block">
                             <CardHeader>
@@ -30,6 +31,7 @@ async function BlogCardContainer() {
                             </CardContent>
                         </Card>
                     </div>
+                    */ }
                 </div>
             </div>
         </main>

@@ -74,8 +74,8 @@ export function BlogArtwork({
           <span className="text-sm text-red-700">{formatDate(blog.createdAt)}</span>
         </div>
         <CardHeader>
-          <CardTitle className="noto-sans-devanagari font-bold text-2xl mb-2">{title}</CardTitle>
-          <CardDescription className="noto-sans-devanagari font-regular text-lg mb-2 line-clamp-3">{description}</CardDescription>
+          <CardTitle className="noto-sans-devanagari font-bold text-4xl mb-2">{title}</CardTitle>
+          <CardDescription className="noto-sans-devanagari font-bold text-lg mb-2 line-clamp-3">{description}</CardDescription>
 
         </CardHeader>
 

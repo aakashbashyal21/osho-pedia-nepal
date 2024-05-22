@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const article = await getBlogBySlug(params?.slug);
 
     if (article) {
-        const { title, description, image: { url: image } } = article;
+        const { title, description } = article;
         const url = process.env.NEXT_PUBLIC_APP_URL;
 
         const ogUrl = new URL(`${url}/api/og`)
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 url: absoluteUrl(params?.slug),
                 images: [
                     {
-                        url: `${image}`,
+                        url: `${article?.image.url}`,
                         width: 1200,
                         height: 630,
                         alt: title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 card: "summary_large_image",
                 title: title,
                 description: description,
-                images: `${image}`,
+                images: `${article?.image.url}`,
             },
         }
     } else {
