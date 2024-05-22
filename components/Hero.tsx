@@ -8,7 +8,7 @@ import Image from "next/image";
 export const Hero = () => {
     return (
 
-        <section className="dark:bg-gray-900">
+        <section className="dark:bg-gray-900 pt-16">
             <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
                     <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">{siteConfig.heroSectionTitle}</h1>
@@ -18,7 +18,7 @@ export const Hero = () => {
                     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
                         <Image
                             alt='Mountains'
-                            src='/osho_hd_1.jpg'
+                            src='/OSHO_HD_1.jpg'
                             layout='fill'
                             objectFit='contain'
                         />

@@ -22,7 +22,7 @@ export default function RootLayout({
       <Header />
       <div className="flex h-screen overflow-hidden">
         <Sidebar />
-        <main className="w-full pt-16">{children}</main>
+        <main className="w-full">{children}</main>
       </div>
 
     </>

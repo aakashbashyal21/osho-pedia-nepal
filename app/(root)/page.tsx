@@ -27,14 +27,9 @@ export default async function page() {
 
   return (
     <ScrollArea className="h-full" >
-      <div className="flex-1 space-y-4 px-4 pt-6 md:p-8">
-        <Hero />
-
-        <Separator className="my-4" />
-        <BlogCardContainer />
-
-        <Footer />
-      </div>
+      <Hero />
+      <BlogCardContainer />
+      <Footer />
     </ScrollArea>
   );
 }
