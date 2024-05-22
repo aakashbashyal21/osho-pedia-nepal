@@ -31,8 +31,8 @@ export default async function page() {
 
         <Separator className="my-4" />
 
-        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
-          <div className="mx-auto grid max-w-[70rem] flex-1 auto-rows-max gap-6 p-4 lg:gap-8">
+        <main className="grid flex-1 items-start gap-4 p-4 sm:px-2 sm:py-0 md:gap-8">
+          <div className="mx-auto grid max-w-[70rem] flex-1 auto-rows-max gap-6 px-2 py-4 sm:px-4 lg:gap-8">
             <div className="grid gap-6 md:grid-cols-[2fr_1fr] lg:grid-cols-3 lg:gap-8">
               <div className="grid auto-rows-max items-start gap-4 md:col-span-2 lg:col-span-2 lg:gap-4">
                 {blogData}
@@ -56,6 +56,7 @@ export default async function page() {
             </div>
           </div>
         </main>
+
 
         {/* <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-1 gap-4">
         </section>
