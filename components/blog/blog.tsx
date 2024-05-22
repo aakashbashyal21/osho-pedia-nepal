@@ -43,7 +43,7 @@ export function BlogArtwork({
   index,
   ...props
 }: BlogArtworkProps) {
-  const { title, description,createdAt, keywords } = blog;
+  const { title, description, createdAt, keywords } = blog;
 
   return (
     <MotionDiv
@@ -58,8 +58,8 @@ export function BlogArtwork({
       viewport={{ amount: 0 }}
       className="rounded relative"
     >
-      <Card className="flex flex-col justify-between h-full bg-stone-100 hover:bg-stone-50 hover:border-blue-400 ">
-         {/*div className="flex-grow p-4">
+      <Card className="flex flex-col justify-between h-full bg-white-50 border-none shadow-none">
+        {/*div className="flex-grow p-4">
           <CardImage
             src={blog.image?.url}
             alt={blog.title}
@@ -69,21 +69,24 @@ export function BlogArtwork({
 
           </CardImage> 
         </div>*/}
+
+        <div className="px-6 pt-4">
+          <span className="text-sm text-red-700">{formatDate(blog.createdAt)}</span>
+        </div>
         <CardHeader>
           <CardTitle className="noto-sans-devanagari font-bold text-2xl mb-2">{title}</CardTitle>
           <CardDescription className="noto-sans-devanagari font-regular text-lg mb-2 line-clamp-3">{description}</CardDescription>
 
         </CardHeader>
-        {/* <div className="px-6 pt-4">
-          <span className="text-sm text-primary">{formatDate(blog.createdAt)}</span>
-        </div> */}
-   
+
+
         <CardFooter>
           {keywords.map(tag => (
-            <span key={tag} className="inline-block bg-gray-200 rounded-md py-1 px-2 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm font-semibold text-red-700 mr-2 mb-2">
               #{tag}
             </span>
           ))}
+
 
         </CardFooter>
       </Card>

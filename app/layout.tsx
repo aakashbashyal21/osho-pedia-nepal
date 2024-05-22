@@ -2,12 +2,12 @@ import Providers from '@/components/layout/providers';
 import { Toaster } from '@/components/ui/toaster';
 import '@uploadthing/react/styles.css';
 import type { Metadata } from 'next';
-import { Inter, Noto_Sans_Devanagari } from 'next/font/google';
+import { Inter, Noto_Serif_Devanagari} from 'next/font/google';
 import './globals.css';
 import { auth } from '@/auth';
 
 const inter = Inter({ subsets: ['latin'] });
-const notoSansDevanagari = Noto_Sans_Devanagari({
+const notoSansDevanagari = Noto_Serif_Devanagari ({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-noto-sans-devanagari'
