@@ -29,7 +29,7 @@ export interface FooterItem {
 
 export interface BlogItem {
   image: {
-      url: string;
+    url: string;
   };
   keywords: [];
   title: string;
@@ -60,6 +60,7 @@ export type MainNavItem = NavItemWithOptionalChildren;
 export type SidebarNavItem = NavItemWithChildren;
 export type SiteConfig = {
   name: string
+  heroSectionTitle: string
   description: string
   url: string
   ogImage: string
