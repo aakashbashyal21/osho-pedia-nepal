@@ -58,7 +58,7 @@ export function BlogArtwork({
       viewport={{ amount: 0 }}
       className="rounded relative"
     >
-      <Card className="flex flex-col justify-between h-full bg-white-50 border-none shadow-none">
+      <Card className="flex flex-col justify-between h-full bg-white-0 border-none shadow-none">
         {/*div className="flex-grow p-4">
           <CardImage
             src={blog.image?.url}
@@ -70,17 +70,17 @@ export function BlogArtwork({
           </CardImage> 
         </div>*/}
 
-        <div className="px-6 pt-4">
+        <div className="px-0 md:px-4">
           <span className="text-sm text-red-700">{formatDate(blog.createdAt)}</span>
         </div>
-        <CardHeader>
+        <CardHeader className="px-0 md:px-4">
           <CardTitle className="noto-sans-devanagari font-bold text-4xl mb-2">{title}</CardTitle>
           <CardDescription className="noto-sans-devanagari font-bold text-lg mb-2 line-clamp-3">{description}</CardDescription>
 
         </CardHeader>
 
 
-        <CardFooter>
+        <CardFooter className="px-0 md:px-2">
           {keywords.map(tag => (
             <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm font-semibold text-red-700 mr-2 mb-2">
               #{tag}

@@ -41,7 +41,7 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
         <div className="container pt-8">
             <div className="max-w-5xl mx-auto">
                 <article className="">
-                    <h1 className="text-6xl font-bold mb-4 text-center noto-sans-devanagari">{article.title}</h1>
+                    <h1 className="text-6xl font-bold mb-4 text-center noto-sans-devanagari pt-16">{article.title}</h1>
                     {article.publishedBy && (
                         <div className="flex justify-center text-center">
                             <div className="">
@@ -54,9 +54,9 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
 
                     {/* Render HTML content */}
                     <div className="mt-8 sm:prose-md md:prose-lg lg:prose-xl leading-relaxed noto-sans-devanagari mb-4 dark:text-slate-100 dark:prose-strong:text-slate-400 dark:prose-em:text-slate-400 prose-p:mb-2">
-                        {/* <img className="w-full bg-cover bg-center" src={article.image?.url} alt="Article Image" /> */}
-                        <div className="prose-p:mb-2" dangerouslySetInnerHTML={{ __html: article.content.html }} />
+                        <div className="prose-p:mb-2 prose text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify" dangerouslySetInnerHTML={{ __html: article.content.html }} />
                     </div>
+
                 </article>
             </div>
             <div className="mb-7 mt-7 flex justify-center">
