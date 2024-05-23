@@ -38,25 +38,21 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
         return <div>No article to display</div>;
     }
     return (
-        <div className="container pt-8">
+        <div className="pt-8 px-6 md:container">
             <div className="max-w-5xl mx-auto">
                 <article className="">
-                    <h1 className="text-6xl font-bold mb-4 text-center noto-sans-devanagari pt-16">{article.title}</h1>
+                    <h1 className="text-6xl font-bold mb-4 text-left noto-sans-devanagari pt-16">{article.title}</h1>
                     {article.publishedBy && (
-                        <div className="flex justify-center text-center">
+                        <div className="flex text-left">
                             <div className="">
-                                <p className="text-sm text-muted-foreground">{formatDate(article.createdAt)}</p>
+                                <p className="text-lg text-muted-foreground">{formatDate(article.createdAt)}</p>
                             </div>
                         </div>
                     )}
-
                     <Separator className="my-4" />
-
-                    {/* Render HTML content */}
-                    <div className="mt-8 sm:prose-md md:prose-lg lg:prose-xl leading-relaxed noto-sans-devanagari mb-4 dark:text-slate-100 dark:prose-strong:text-slate-400 dark:prose-em:text-slate-400 prose-p:mb-2">
-                        <div className="prose-p:mb-2 prose text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify" dangerouslySetInnerHTML={{ __html: article.content.html }} />
+                    <div className="prose-p:mb-2 prose text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify md:px-3 lg:px-4">
+                        <div className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900" dangerouslySetInnerHTML={{ __html: article.content.html }} />
                     </div>
-
                 </article>
             </div>
             <div className="mb-7 mt-7 flex justify-center">
