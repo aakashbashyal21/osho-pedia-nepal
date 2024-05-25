@@ -41,7 +41,7 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
         <div className="pt-8 px-6 md:container">
             <div className="max-w-5xl mx-auto">
                 <article className="">
-                    <h1 className="text-6xl font-bold mb-4 text-left noto-sans-devanagari pt-16">{article.title}</h1>
+                    <h1 className="text-4xl font-bold mb-4 text-left noto-sans-devanagari pt-16">{article.title}</h1>
                     {article.publishedBy && (
                         <div className="flex text-left">
                             <div className="">
