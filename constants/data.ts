@@ -118,5 +118,10 @@ export const navItems: NavItem[] = [
     href: '/',
     icon: 'dashboard',
     label: 'Dashboard'
-  }
+  }, {
+    title: 'OSHO',
+    href: '/about',
+    icon: 'notebook',
+    label: 'Dashboard'
+  },
 ];

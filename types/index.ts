@@ -69,3 +69,12 @@ export type SiteConfig = {
     facebook: string
   }
 }
+export interface BiographyItem {
+  index: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  imageSrc: string;
+  readMoreLink: string;
+  reverse?: boolean;
+}

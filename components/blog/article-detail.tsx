@@ -50,7 +50,7 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                         </div>
                     )}
                     <Separator className="my-4" />
-                    <div className="prose-p:mb-2 prose text-xl lg:text-xl xl:text-2xl 2xl:text-3xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify md:px-3 lg:px-4">
+                    <div className="prose-p:mb-2 prose text-xl lg:text-xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify md:px-3 lg:px-4">
                         <div className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900" dangerouslySetInnerHTML={{ __html: article.content.html }} />
                     </div>
                 </article>
