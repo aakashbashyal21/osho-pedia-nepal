@@ -19,7 +19,7 @@ export default function page() {
                         <p className="text-lg mt-4">Only Visited this
                             Planet Earth between</p>
                         <p className="text-lg mt-4">Dec 11, 1931 – Jan 19, 1990</p>
-                        <img src="/path-to-image.jpg" alt="Abraham Lincoln" className="mx-auto mt-4" />
+                        <img src="https://placehold.co/600x400" alt="Abraham Lincoln" className="mx-auto mt-4" />
                     </section>
                     {bioItem.map((item, index) => (
                         <BiographySection key={index} {...item} />
