@@ -21,7 +21,7 @@ export default function RootLayout({
     <>
       <Header />
       <div className="flex h-screen overflow-hidden">
-        <Sidebar />
+        {/* <Sidebar /> */}
         <main className="w-full">{children}</main>
       </div>
 
