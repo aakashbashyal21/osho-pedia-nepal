@@ -6,9 +6,6 @@ import HomeContainer from '@/components/HomeContainer';
 
 export default async function page() {
   return (
-    <ScrollArea className="h-full" >
       <HomeContainer />
-      <Footer />
-    </ScrollArea>
   );
 }

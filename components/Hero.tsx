@@ -1,53 +1,45 @@
-'use client'
-
 import { Button } from "./ui/button";
-import { buttonVariants } from "./ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import { siteConfig } from '@/config/site';
-
 import Image from "next/image";
 import { MoveDown } from "lucide-react";
 import { useScrollStore } from "@/store/zustand";
+import Link from "next/link";
 
 export const Hero = () => {
 
-    const setScrollToBio = useScrollStore((state: any) => state.setScrollToBio);
-
-    const handleButtonClick = () => {
-        setScrollToBio(true); // Set scroll state to true
-    };
     return (
 
-        <div className="relative h-screen">
-            <div className="absolute inset-0">
-                <Image
-                    src="https://www.sannyas.wiki/images/thumb/6/66/Osho_HD_052.jpg/1200px-Osho_HD_052.jpg?20150514163234"
-                    alt="Background Image"
-                    layout="fill"
-                    objectFit="cover"
-                    quality={100}
-                    className="z-0"
-                />
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-            </div>
-            <div className="absolute inset-0 flex flex-col justify-center items-center">
-                <div className="w-full px-4 text-center lg:absolute lg:right-10 lg:bottom-10 lg:text-right lg:w-auto lg:px-0"> {/* Adjusted for right alignment on large screens */}
-                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight drop-shadow-lg text-yellow-300 animate-fade-in">
-                        Never Born – Never Died
-                    </h1>
-                    <p className="mt-6 text-xl md:text-2xl drop-shadow-md text-yellow-300">
-                        Only visited this planet Earth between
-                    </p>
-                    <p className="mt-4 text-xl md:text-2xl drop-shadow-md text-yellow-300">
-                        December 11, 1931 and January 19, 1990
+        <section className="space-y-6 pb-8 pt-4 md:pb-12 md:pt-10">
+            <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+                <Link
+                    href={siteConfig.links.twitter}
+                    className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
+                    target="_blank"
+                >
+                    OSHO
+                </Link>
+                <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+                    Never Born – Never Died
+
+                </h1>
+                <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+                </p>
+                <div className="space-x-4">
+                    <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+                        Only Visited this
+                        Planet Earth between
+                    </p>                <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+                        Dec 11, 1931 – Jan 19, 1990
+
+
                     </p>
                 </div>
-                <div className="absolute bottom-10 animate-bounce cursor-pointer" onClick={handleButtonClick}>
-                    <div className="h-16 w-16 flex items-center justify-center rounded-full bg-yellow-300 hover:bg-yellow-400 transition duration-300 ease-in-out">
-                        <MoveDown className="h-8 w-8 text-black" />
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
+
+
+
+
     );
 };

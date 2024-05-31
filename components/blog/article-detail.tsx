@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArticleDetail } from '@/types';
+import { buttonVariants } from "@/components/ui/button"
 
 import { Skeleton } from '@/components/ui/skeleton'
 import {
@@ -16,6 +17,8 @@ import {
     Badge,
 } from "@/components/ui/badge"
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { ChevronLeft } from 'lucide-react';
 interface ArticleDetailsProps {
     article: ArticleDetail | null;
 }
@@ -31,38 +34,54 @@ type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
 }
 
-
-
 const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
     if (!article) {
         return <div>No article to display</div>;
     }
     return (
-        <div className="pt-8 px-6 md:container">
-            <div className="max-w-5xl mx-auto">
-                <article className="">
-                    <h1 className="text-4xl font-bold mb-4 text-left noto-sans-devanagari pt-16">{article.title}</h1>
-                    {article.publishedBy && (
-                        <div className="flex text-left">
-                            <div className="">
-                                <p className="text-lg text-muted-foreground">{formatDate(article.createdAt)}</p>
-                            </div>
-                        </div>
+
+        <article className="container relative max-w-3xl py-6 lg:py-12">
+            <Link
+                href="/"
+                className={cn(
+                    buttonVariants({ variant: "ghost" }),
+                    "absolute left-[-200px] top-14 hidden xl:inline-flex"
+                )}
+            >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                See all posts
+            </Link>
+            <div>
+
+                <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+                    {article.title}
+                </h1>
+                <div className="mt-4 flex space-x-4">
+
+                    {article.createdAt && (
+                        <time
+                            dateTime={article.createdAt}
+                            className="block text-sm text-muted-foreground"
+                        >
+                            Published on {formatDate(article.createdAt)}
+                        </time>
                     )}
-                    <Separator className="my-4" />
-                    <div className="prose-p:mb-2 prose text-xl lg:text-xl leading-relaxed lg:leading-relaxed xl:leading-relaxed 2xl:leading-relaxed justify-center text-justify md:px-3 lg:px-4">
-                        <div className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900" dangerouslySetInnerHTML={{ __html: article.content.html }} />
-                    </div>
-                </article>
+                </div>
             </div>
-            <div className="mb-7 mt-7 flex justify-center">
-                <Link
-                    href="/"
-                    className="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-blue-600 dark:text-blue-500">
-                    ← View all posts
+            <article className="max-w-full md:max-w-none">
+                <Separator className="my-4" />
+                <div className="prose prose-lg prose-p:mb-2 text-justify">
+                    <div className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900" dangerouslySetInnerHTML={{ __html: article.content.html }} />
+                </div>
+            </article>
+            <hr className="mt-12" />
+            <div className="flex justify-center py-6 lg:py-10">
+                <Link href="/" className={cn(buttonVariants({ variant: "ghost" }))}>
+                    <ChevronLeft className="mr-2 h-4 w-4" />
+                    See all posts
                 </Link>
             </div>
-        </div>
+        </article>
 
     );
 };

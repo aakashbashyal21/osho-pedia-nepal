@@ -59,17 +59,6 @@ export function BlogArtwork({
       className="rounded relative"
     >
       <Card className="flex flex-col justify-between h-full bg-white-0 border-none shadow-none">
-        {/*div className="flex-grow p-4">
-          <CardImage
-            src={blog.image?.url}
-            alt={blog.title}
-            className={cn(
-              "object-cover transition-all hover:scale-105 rounded-md aspect-[4/3]",
-            )}>
-
-          </CardImage> 
-        </div>*/}
-
         <div className="px-0 md:px-4">
           <span className="text-sm text-red-700">{formatDate(blog.createdAt)}</span>
         </div>

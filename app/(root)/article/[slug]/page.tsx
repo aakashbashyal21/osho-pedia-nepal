@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 url: absoluteUrl(params?.slug),
                 images: [
                     {
-                        url: `${article?.image.url}`,
+                        url: ogUrl.toString(),
                         width: 1200,
                         height: 630,
                         alt: title,
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 card: "summary_large_image",
                 title: title,
                 description: description,
-                images: `${article?.image.url}`,
+                images: [ogUrl.toString()],
             },
         }
     } else {
@@ -57,10 +57,7 @@ export default async function ArticleDetail({ params }: Params) {
     const { slug } = params;
     const article = await getBlogBySlug(slug);
     return (
-        <ScrollArea className="h-full" >
-            <div className="flex-1 space-y-4">
-                <BlogDetail article={article} />
-            </div>
-        </ScrollArea>
+             <BlogDetail article={article} />
+
     );
 }

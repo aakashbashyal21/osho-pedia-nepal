@@ -6,6 +6,7 @@ import { Inter, Noto_Serif_Devanagari } from 'next/font/google';
 import './globals.css';
 import { auth } from '@/auth';
 import { siteConfig } from '@/config/site';
+import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 const notoSansDevanagari = Noto_Serif_Devanagari({
@@ -32,7 +33,12 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${notoSansDevanagari.className} overflow-hidden`}>
+      <body  className={cn(
+          "min-h-screen bg-background antialiased",
+          `${inter.className}`,
+          `${notoSansDevanagari.className}`
+        )}
+        >
         <Providers session={session}>
           <Toaster />
           {children}

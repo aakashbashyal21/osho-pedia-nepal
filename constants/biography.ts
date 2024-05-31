@@ -4,28 +4,32 @@ import { BiographyItem } from "@/types";
 export const bioItem: BiographyItem[] = [
   {
     index: 0,
-    title: "ओशो को पूर्व जन्म",
+    title: "Osho’s Past Lives",
     subtitle: '',
-    description: `जुन क्षण बच्चा जन्मिन्छ तिमिलाई लाग्छ, यो जीवनको सुरुवात हो। त्यो सत्य होइन।
-        जुन पल एक वृद्ध मानिसको मृत्यु हुन्छ, तिमि सोच्छौ, उसको जीवन अन्त्य भयो । यो होइन।
-        जीवन जन्म र मृत्यु भन्दा धेरै विशाल छ।
-        जीवन तिम्रो विगत जीवनको मृत्युको बिन्दुबाट सुरु हुन्छ।  
-        जन्म र मृत्यु जीवनका दुई छेउ होइनन्; जीवन भित्र धेरै जन्म र धेरै मृत्यु हुन्छ।  जीवनको आफैमा कुनै सुरुवात छैन, अन्त्य छैन: जीवन र शाश्वत बराबर छन्।
-        तिम्रो जीवनको शुरुवात विगतको जीवनको मृत्युको बिन्दुबाट सुरु हुन्छ।  तिम्रो मृत्यु पस्चात, एकातिर तिम्रो जीवनको एक अध्यायको अन्त्य हुन्छ, जुन मान्छेहरू ले सम्पूर्ण जीवन ठान्छन् त्यो बन्द हुन्छ। 
-        यो जीवन, अनन्त अध्याय मध्य को मात्र एउटा अध्याय हो।  एउटा अध्याय  अन्त्य हुन्छ, तर पुस्तक बन्द हुँदैन। केवल पृष्ठ पल्टिन्छ  र अर्को अध्याय सुरु हुन्छ। `,
-    imageSrc: '/osho-photo/osho-past-life.jpg',
+    description: `
+    Birth and death are not two ends of life; many births and many deaths happen
+    within life. Life itself has no beginning, no end: life and eternity are equivalent....`,
+    imageSrc: '/osho-photo/osho-past-life3.png',
     readMoreLink: '#',
     reverse: false,
   },
   {
     index: 1,
-    title: 'कुचवाडा',
-    subtitle: '१९३१-१९३९',
-    description: `डिसेम्बर ११, १९३१: ओशोको जन्म मध्य भारतको मध्य प्रदेश राज्यको एउटा सानो गाउँ कुचवाडामा भएको थियो। 
-        उनी जैन कपडा व्यापारीका एघार सन्तानमध्ये जेठा हुन्। 
-        उहाँका प्रारम्भिक वर्षका कथाहरूले उहाँलाई एक बच्चाको रूपमा स्वतन्त्र र विद्रोहीको रूपमा वर्णन गर्दछ, जो सबै सामाजिक, धार्मिक र दार्शनिक विश्वासहरूमा प्रश्न उठाउँथे।`,
+    title: 'Kuchwada',
+    subtitle: '1931-1939',
+    description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
+    The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
     readMoreLink: '#',
     reverse: true,
+  },  {
+    index: 3,
+    title: 'Gadarwara',
+    subtitle: '1939-1951',
+    description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
+    The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
+    imageSrc: '/osho-photo/osho-birth-house.jpg',
+    readMoreLink: '#',
+    reverse: false,
   },
 ];
