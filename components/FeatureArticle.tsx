@@ -40,7 +40,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                             </p>
                             <div className="text-sm">
                                 <p className="text-gray-600">
-                                    {new Date(articles.featuredArticle.createdAt).toLocaleDateString()}
+                                    {formatDate(articles.featuredArticle.createdAt)}
                                 </p>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                     <p className="text-gray-600 mb-4 line-clamp-2">{article.description}</p>
                                     <div className="text-sm">
                                         <p className="text-gray-600">
-                                            {new Date(article.createdAt).toLocaleDateString()}
+                                            {formatDate(article.createdAt)}
                                         </p>
                                     </div>
                                 </div>

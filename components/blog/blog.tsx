@@ -67,17 +67,14 @@ export function BlogArtwork({
             <CardDescription className="text-base text-gray-700 mb-2 line-clamp-3">{description}</CardDescription>
           </CardHeader>
           <CardFooter className="flex items-center justify-between px-0">
-
             <div>
               <span className="text-sm text-red-700">Posted on {formatDate(blog.createdAt)}</span>
             </div>
           </CardFooter>
-
-
         </div>
 
         {image && (
-          <div className="md:w-1/3 md:flex-shrink-0 md:ml-4">
+          <div className="md:w-1/3 md:flex-shrink-0 md:ml-4 order-first md:order-none">
             <CardImage
               src={blog.image?.url}
               alt={blog.title}
@@ -87,6 +84,7 @@ export function BlogArtwork({
         )}
 
       </Card>
+
 
 
 
