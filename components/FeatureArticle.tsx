@@ -23,26 +23,28 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
             <div className="grid md:grid-cols-4 gap-4">
                 {/* Feature article section */}
                 <div className="col-span-4 lg:col-span-2"> {/* Feature article on the left for larger devices */}
-                    <div className="rounded-lg overflow-hidden">
-                        <img
-                            src={articles.featuredArticle.image.url}
-                            alt={articles.featuredArticle.title}
-                            className="w-full h-auto object-cover p-4"
-                        />
-                    </div>
-                    <div className="p-4">
-                        <h2 className="text-2xl font-bold mb-2">
-                            {articles.featuredArticle.title}
-                        </h2>
-                        <p className="text-gray-600 mb-4 line-clamp-2">
-                            {articles.featuredArticle.description}
-                        </p>
-                        <div className="text-sm">
-                            <p className="text-gray-600">
-                                {new Date(articles.featuredArticle.createdAt).toLocaleDateString()}
-                            </p>
+                    <Link className="block rounded-lg overflow-hidden" href={`/article/${articles.featuredArticle.urlSlug}`}>
+                        <div>
+                            <img
+                                src={articles.featuredArticle.image.url}
+                                alt={articles.featuredArticle.title}
+                                className="w-full h-auto object-cover p-4"
+                            />
                         </div>
-                    </div>
+                        <div className="p-4">
+                            <h2 className="text-2xl font-bold mb-2">
+                                {articles.featuredArticle.title}
+                            </h2>
+                            <p className="text-gray-600 mb-4 line-clamp-2">
+                                {articles.featuredArticle.description}
+                            </p>
+                            <div className="text-sm">
+                                <p className="text-gray-600">
+                                    {new Date(articles.featuredArticle.createdAt).toLocaleDateString()}
+                                </p>
+                            </div>
+                        </div>
+                    </Link>
                 </div>
                 {/* Recent articles section */}
                 <div className="col-span-4 lg:col-span-2"> {/* Recent articles below feature article for medium devices */}
@@ -51,9 +53,8 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                     <div className="grid gap-4">
                         {/* Recent articles cover text width on medium and above */}
                         {articles.recentArticles.map((article, index) => (
-                            <div key={index} className="rounded-lg overflow-hidden">
+                            <Link className="block rounded-lg overflow-hidden" key={index} href={`/article/${article.urlSlug}`}>
                                 <div className="p-4">
-
                                     {article.keywords.map(tag => (
                                         <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 mb-2 text-sm text-gray-600 mr-2">
                                             {tag}
@@ -63,11 +64,11 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                     <p className="text-gray-600 mb-4 line-clamp-2">{article.description}</p>
                                     <div className="text-sm">
                                         <p className="text-gray-600">
-                                            {formatDate(article.createdAt)}
+                                            {new Date(article.createdAt).toLocaleDateString()}
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
