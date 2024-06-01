@@ -17,7 +17,7 @@ const notoSansDevanagari = Noto_Serif_Devanagari({
 
 
 export const metadata: Metadata = {
-  title: "ओशो-पिडिया नेपाल",
+  title: "Osho Pedia",
   description: siteConfig.description,
   icons: {
     icon: '/logo.svg'

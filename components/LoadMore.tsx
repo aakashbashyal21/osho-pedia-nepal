@@ -44,7 +44,7 @@ function LoadMore() {
 
     return (
         <>
-        <section className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6 lg:gap-8">
                 {data}
             </section>
             <section className="flex justify-center items-center w-full">
@@ -58,7 +58,7 @@ function LoadMore() {
                             className="object-contain"
                         />
                     )}
-                
+
                 </div>
             </section>
         </>

@@ -9,14 +9,21 @@ import Link from 'next/link';
 const endpoint = process.env.HYGRAPH_ENDPOINT as string;
 const MAX_LIMIT = 8;
 
-//8, 1
-export const getBlogList = async (page: number) => {
-  const limit = MAX_LIMIT; // Fixed limit
-
-  const skip = (page - 1) * limit; // Calculate the number of items to skip
+export const getFeatureList = async () => {
+  const limit = 3; // Fixed limit for recent articles
   const query = `
-  query BlogLists($limit: Int!, $skip: Int!) {
-      blogLists( first: $limit, skip: $skip,orderBy: publishedAt_DESC) {
+    query BlogLists($limit: Int!) {
+      featuredArticle: blogLists(first: 1, orderBy: createdAt_DESC, where: { isFeatured: true }) {
+        image {
+          url
+        }
+        description
+        urlSlug
+        keywords
+        title
+        createdAt
+      }
+      recentArticles: blogLists(first: $limit, orderBy: createdAt_DESC, where: { isFeatured: false }) {
         image {
           url
         }
@@ -28,7 +35,45 @@ export const getBlogList = async (page: number) => {
       }
     }
   `;
+
   const client = new GraphQLClient(endpoint);
+
+  try {
+    const data = await client.request<{ featuredArticle: BlogItem[], recentArticles: BlogItem[] }>(query, {
+      limit
+    });
+
+    return {
+      featuredArticle: data.featuredArticle[0], // Get the single featured article
+      recentArticles: data.recentArticles // Get the top 3 most recently published articles
+    };
+
+  } catch (error) {
+    throw new Error(`Error fetching blog list: ${error}`);
+  }
+};
+//8, 1
+export const getBlogList = async (page: number) => {
+  const limit = MAX_LIMIT; // Fixed limit
+  const skip = (page - 1) * limit + 3; // Skip the first 4 articles
+
+  const query = `
+    query BlogLists($limit: Int!, $skip: Int!) {
+      blogLists(first: $limit, skip: $skip, orderBy: createdAt_DESC, where: { isFeatured: false }) {
+        image {
+          url
+        }
+        description
+        urlSlug
+        keywords
+        title
+        createdAt
+      }
+    }
+  `;
+
+  const client = new GraphQLClient(endpoint);
+
   try {
     const data = await client.request<{ blogLists: BlogItem[] }>(query, {
       limit,

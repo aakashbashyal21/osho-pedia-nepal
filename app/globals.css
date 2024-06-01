@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --gradient: #800000;
-    --background: 0 100% 98.5%;
+    --background: hsl(0, 0%, 100%);
     --foreground: 0 10% 1%;
 
     --muted: 0 10% 92.5%;

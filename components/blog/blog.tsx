@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { BlogItem } from "@/types";
-import { cn } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import { MotionDiv } from "../Motion";
 
 import {
@@ -28,13 +28,7 @@ interface BlogArtworkProps extends React.HTMLAttributes<HTMLDivElement> {
   index: number;
 }
 
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-}
+
 
 export function BlogArtwork({
   blog,
@@ -43,7 +37,7 @@ export function BlogArtwork({
   index,
   ...props
 }: BlogArtworkProps) {
-  const { title, description, createdAt, keywords } = blog;
+  const { title, description, createdAt, keywords, image } = blog;
 
   return (
     <MotionDiv
@@ -58,27 +52,43 @@ export function BlogArtwork({
       viewport={{ amount: 0 }}
       className="rounded relative"
     >
-      <Card className="flex flex-col justify-between h-full bg-white-0 border-none shadow-none">
-        <div className="px-0 md:px-4">
-          <span className="text-sm text-red-700">{formatDate(blog.createdAt)}</span>
+      <Card className="flex flex-col md:flex-row justify-between h-full bg-white-0 border-none shadow-none p-4">
+
+        <div className="flex flex-col justify-between md:w-2/3">
+          <div className="flex items-center">
+            {keywords.map(tag => (
+              <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <CardHeader className="px-0">
+            <CardTitle className="font-bold text-3xl mb-1">{title}</CardTitle>
+            <CardDescription className="text-base text-gray-700 mb-2 line-clamp-3">{description}</CardDescription>
+          </CardHeader>
+          <CardFooter className="flex items-center justify-between px-0">
+
+            <div>
+              <span className="text-sm text-red-700">Posted on {formatDate(blog.createdAt)}</span>
+            </div>
+          </CardFooter>
+
+
         </div>
-        <CardHeader className="px-0 md:px-4">
-          <CardTitle className="noto-sans-devanagari font-bold text-4xl mb-2">{title}</CardTitle>
-          <CardDescription className="noto-sans-devanagari font-bold text-lg mb-2 line-clamp-3">{description}</CardDescription>
 
-        </CardHeader>
+        {image && (
+          <div className="md:w-1/3 md:flex-shrink-0 md:ml-4">
+            <CardImage
+              src={blog.image?.url}
+              alt={blog.title}
+              className="object-cover rounded-md transition-all hover:scale-105 rounded-md w-full h-full md:w-48 md:h-36"
+            />
+          </div>
+        )}
 
-
-        <CardFooter className="px-0 md:px-2">
-          {keywords.map(tag => (
-            <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm font-semibold text-red-700 mr-2 mb-2">
-              #{tag}
-            </span>
-          ))}
-
-
-        </CardFooter>
       </Card>
+
+
 
     </MotionDiv>
 

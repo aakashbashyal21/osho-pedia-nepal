@@ -1,13 +1,8 @@
 import React from 'react';
 import { ArticleDetail } from '@/types';
 import { buttonVariants } from "@/components/ui/button"
+import readTime from 'reading-time';
 
-import { Skeleton } from '@/components/ui/skeleton'
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "@/components/ui/avatar"
 import {
 
     Separator,
@@ -18,7 +13,8 @@ import {
 } from "@/components/ui/badge"
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { ChevronLeft } from 'lucide-react';
+import { ChevronLeft, Clock } from 'lucide-react';
+
 interface ArticleDetailsProps {
     article: ArticleDetail | null;
 }
@@ -38,6 +34,9 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
     if (!article) {
         return <div>No article to display</div>;
     }
+
+    const readingTime = readTime(article.content.html).text;
+
     return (
 
         <article className="container relative max-w-3xl py-6 lg:py-12">
@@ -56,8 +55,14 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                 <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
                     {article.title}
                 </h1>
-                <div className="mt-4 flex space-x-4">
-
+                <h2 className="mt-2 text-lg text-muted-foreground">
+                    {article.description}
+                </h2>
+                <div className="mt-4 flex space-x-4 items-center">
+                    <div className="flex items-center text-sm text-muted-foreground">
+                        <Clock className="mr-1" /> {/* Lucide Clock icon */}
+                        {readingTime}
+                    </div>
                     {article.createdAt && (
                         <time
                             dateTime={article.createdAt}
@@ -70,8 +75,11 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
             </div>
             <article className="max-w-full md:max-w-none">
                 <Separator className="my-4" />
-                <div className="prose prose-lg prose-p:mb-2 text-justify">
-                    <div className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900" dangerouslySetInnerHTML={{ __html: article.content.html }} />
+                <div className="prose prose-lg prose-p:mb-2 text-justify dark:prose-invert">
+                    <div
+                        className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900"
+                        dangerouslySetInnerHTML={{ __html: article.content.html }}
+                    />
                 </div>
             </article>
             <hr className="mt-12" />
