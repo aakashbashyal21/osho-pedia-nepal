@@ -37,3 +37,6 @@ export function formatDate(dateString: string): string {
     year: 'numeric',
   });
 }
+export function removeUnderscores(inputString: string) {
+  return inputString.replace(/_/g, ' ');
+}

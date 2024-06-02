@@ -19,7 +19,7 @@ export const getFeatureList = async () => {
         }
         description
         urlSlug
-        keywords
+        categories
         title
         createdAt
       }
@@ -29,7 +29,7 @@ export const getFeatureList = async () => {
         }
         description
         urlSlug
-        keywords
+        categories
         title
         createdAt
       }
@@ -65,7 +65,7 @@ export const getBlogList = async (page: number) => {
         }
         description
         urlSlug
-        keywords
+        categories
         title
         createdAt
       }
@@ -106,7 +106,7 @@ export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null>
         first: 1
       ) {
         title
-        keywords
+        categories
         createdAt
         description
         publishedBy {

@@ -37,7 +37,7 @@ export function BlogArtwork({
   index,
   ...props
 }: BlogArtworkProps) {
-  const { title, description, createdAt, keywords, image } = blog;
+  const { title, description, createdAt, categories, image } = blog;
 
   return (
     <MotionDiv
@@ -53,12 +53,11 @@ export function BlogArtwork({
       className="rounded relative"
     >
       <Card className="flex flex-col md:flex-row justify-between h-full bg-white-0 border-none shadow-none px-4">
-
         <div className="flex flex-col justify-between md:w-2/3">
           <div className="flex items-center">
-            {keywords.map(tag => (
-              <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2 mt-4 md:mt-0">
-                {tag}
+            {categories.map(category => (
+              <span key={category} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2 mt-4 md:mt-0">
+                {category}
               </span>
             ))}
           </div>
@@ -74,16 +73,16 @@ export function BlogArtwork({
         </div>
 
         {image && (
-          <div className="md:w-1/3 md:flex-shrink-0 md:ml-4 order-first md:order-none">
+          <div className="md:w-1/3 md:flex-shrink-0 order-first md:order-none flex items-center justify-center">
             <CardImage
               src={blog.image?.url}
               alt={blog.title}
-              className="object-cover rounded-md transition-all hover:scale-105 rounded-md w-full h-full md:w-48 md:h-36"
+              className="object-cover rounded-md transition-all hover:scale-105 w-full h-full md:w-48 md:h-36"
             />
           </div>
         )}
-
       </Card>
+
 
 
 

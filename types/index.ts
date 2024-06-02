@@ -31,7 +31,7 @@ export interface BlogItem {
   image: {
     url: string;
   };
-  keywords: [];
+  categories: [];
   title: string;
   createdAt: string;
   urlSlug: string;
@@ -52,7 +52,7 @@ export interface ArticleDetail {
   image: {
     url: string
   }
-  keywords: []
+  categories: []
 }
 
 export type MainNavItem = NavItemWithOptionalChildren;

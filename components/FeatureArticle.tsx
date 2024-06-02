@@ -3,7 +3,7 @@ import React from 'react'
 import { Badge } from './ui/badge';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import { formatDate } from '@/lib/utils';
+import { formatDate, removeUnderscores } from '@/lib/utils';
 type ArticlesProps = {
     articles: {
         featuredArticle: BlogItem;
@@ -55,9 +55,9 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                         {articles.recentArticles.map((article, index) => (
                             <Link className="block rounded-lg overflow-hidden" key={index} href={`/article/${article.urlSlug}`}>
                                 <div className="p-4">
-                                    {article.keywords.map(tag => (
-                                        <span key={tag} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 mb-2 text-sm text-gray-600 mr-2">
-                                            {tag}
+                                    {article.categories.map(category => (
+                                        <span key={category} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 mb-2 text-sm text-gray-600 mr-2">
+                                            {removeUnderscores(category)}
                                         </span>
                                     ))}
                                     <h2 className="text-xl font-bold mb-2">{article.title}</h2>
