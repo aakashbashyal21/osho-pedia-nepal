@@ -2,6 +2,8 @@ import { BlogItem } from '@/types';
 import React from 'react'
 import { Badge } from './ui/badge';
 import Link from 'next/link';
+import Image from 'next/image'
+
 import { Button } from './ui/button';
 import { formatDate, removeUnderscores } from '@/lib/utils';
 type ArticlesProps = {
@@ -50,28 +52,32 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                 <div className="col-span-4 lg:col-span-2"> {/* Recent articles below feature article for medium devices */}
                     <Button className='mb-2 text-lg' variant="link">Recent Post</Button>
 
-                    <div className="grid gap-4">
-                        {/* Recent articles cover text width on medium and above */}
+                    <div className="grid gap-2">
                         {articles.recentArticles.map((article, index) => (
                             <Link className="block rounded-lg overflow-hidden" key={index} href={`/article/${article.urlSlug}`}>
-                                <div className="p-4">
-                                    {article.categories.map(category => (
-                                        <span key={category} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 mb-2 text-sm text-gray-600 mr-2">
-                                            {removeUnderscores(category)}
-                                        </span>
-                                    ))}
-                                    <h2 className="text-xl font-bold mb-2">{article.title}</h2>
-                                    <p className="text-gray-600 mb-4 line-clamp-2">{article.description}</p>
-                                    <div className="text-sm">
-                                        <p className="text-gray-600">
-                                            {formatDate(article.createdAt)}
-                                        </p>
+                                <div className="p-4 flex items-center justify-center"> { }
+                                    <Image
+                                        src={article.image.url}
+                                        alt={article.title}
+                                        width={200}
+                                        height={200} className="h-100 w-100 rounded-md mr-4"
+                                    />
+
+                                    <div className="space-y-2 flex-grow">
+                                        <h2 className="text-2xl font-bold mb-2">{article.title}</h2>
+                                        <div className="flex items-center justify-between">
+                                            <p className="text-gray-600">{formatDate(article.createdAt)}</p>
+                                        </div>
                                     </div>
                                 </div>
+
+
                             </Link>
                         ))}
                     </div>
                 </div>
+
+
             </div>
         </div>
     )
