@@ -1,5 +1,5 @@
 "use server"
-import { BlogArtwork } from '@/components/blog/blog';
+import { BlogArtwork } from '@/components/Blogs/Blog';
 import { BlogItem, ArticleDetail } from '@/types';
 import { GraphQLClient } from 'graphql-request';
 

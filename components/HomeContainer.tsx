@@ -4,7 +4,7 @@ import { Hero } from './Hero';
 import { useRouter } from 'next/navigation';
 import { useScrollStore } from '@/store/zustand'; // Import your Zustand store
 import { useEffect } from 'react';
-import BlogCardContainer from '@/components/blog/BlogCardContainer';
+import BlogCardContainer from '@/components/Blogs/BlogCardContainer';
 import FeatureArticle from './FeatureArticle';
 import { getFeatureList } from '@/data/action';
 
