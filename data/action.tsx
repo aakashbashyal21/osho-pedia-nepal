@@ -1,5 +1,5 @@
 "use server"
-import { BlogArtwork } from '@/components/blog/blog';
+import { BlogArtwork } from '@/components/blog/Blog';
 import { BlogItem, ArticleDetail } from '@/types';
 import { GraphQLClient } from 'graphql-request';
 
@@ -10,7 +10,7 @@ const endpoint = process.env.HYGRAPH_ENDPOINT as string;
 const MAX_LIMIT = 8;
 
 export const getFeatureList = async () => {
-  const limit = 3; // Fixed limit for recent articles
+  const limit = 5; // Fixed limit for recent articles
   const query = `
     query BlogLists($limit: Int!) {
       featuredArticle: blogLists(first: 1, orderBy: createdAt_DESC, where: { isFeatured: true }) {
@@ -55,7 +55,7 @@ export const getFeatureList = async () => {
 //8, 1
 export const getBlogList = async (page: number) => {
   const limit = MAX_LIMIT; // Fixed limit
-  const skip = (page - 1) * limit + 3; // Skip the first 4 articles
+  const skip = (page - 1) * limit + 5; // Skip the first 4 articles
 
   const query = `
     query BlogLists($limit: Int!, $skip: Int!) {
