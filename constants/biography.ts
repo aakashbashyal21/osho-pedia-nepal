@@ -10,7 +10,7 @@ export const bioItem: BiographyItem[] = [
     Birth and death are not two ends of life; many births and many deaths happen
     within life. Life itself has no beginning, no end: life and eternity are equivalent....`,
     imageSrc: '/osho-photo/osho-past-life3.png',
-    readMoreLink: '#',
+    urlSlug: 'osho-past-life',
     reverse: false,
   },
   {
@@ -20,7 +20,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: 'kuchwada',
     reverse: true,
   }, {
     index: 3,
@@ -29,7 +29,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -39,7 +39,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -49,7 +49,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -59,7 +59,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -69,7 +69,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -79,7 +79,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -89,7 +89,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -99,7 +99,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -109,7 +109,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
   {
@@ -119,7 +119,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    readMoreLink: '#',
+    urlSlug: '#',
     reverse: false,
   },
 ];

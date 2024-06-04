@@ -75,6 +75,6 @@ export interface BiographyItem {
   subtitle: string;
   description: string;
   imageSrc: string;
-  readMoreLink: string;
+  urlSlug: string;
   reverse?: boolean;
 }

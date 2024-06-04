@@ -39,49 +39,50 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
 
     return (
 
-        <article className="container relative max-w-3xl py-6 lg:py-12">
-            <Link
-                href="/"
-                className={cn(
-                    buttonVariants({ variant: "ghost" }),
-                    "absolute left-[-200px] top-14 hidden xl:inline-flex"
-                )}
-            >
-                <ChevronLeft className="mr-2 h-4 w-4" />
-                See all posts
-            </Link>
-            <div>
+        <article className="px-4 sm:px-6 md:px-8">
+            <div className="relative max-w-3xl mx-auto">
 
-                <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
-                    {article.title}
-                </h1>
-                <h2 className="mt-2 text-lg text-muted-foreground">
-                    {article.description}
-                </h2>
-                <div className="mt-4 flex space-x-4 items-center">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                        <Clock className="mr-1" /> {/* Lucide Clock icon */}
-                        {readingTime}
-                    </div>
-                    {article.createdAt && (
-                        <time
-                            dateTime={article.createdAt}
-                            className="block text-sm text-muted-foreground"
-                        >
-                            Published on {formatDate(article.createdAt)}
-                        </time>
+                <Link
+                    href="/"
+                    className={cn(
+                        buttonVariants({ variant: "ghost" }),
+                        "absolute left-[-200px] top-14 hidden xl:inline-flex"
                     )}
+                >
+                    <ChevronLeft className="mr-2 h-4 w-4" />
+                    See all posts
+                </Link>
+                <div>
+
+                    <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+                        {article.title}
+                    </h1>
+                    <h2 className="mt-2 text-lg text-muted-foreground">
+                        {article.description}
+                    </h2>
+                    <div className="mt-4 flex space-x-4 items-center">
+                        <div className="flex items-center text-sm text-muted-foreground">
+                            <Clock className="mr-1" /> {/* Lucide Clock icon */}
+                            {readingTime}
+                        </div>
+                        {article.createdAt && (
+                            <time
+                                dateTime={article.createdAt}
+                                className="block text-sm text-muted-foreground"
+                            >
+                                Published on {formatDate(article.createdAt)}
+                            </time>
+                        )}
+                    </div>
                 </div>
-            </div>
-            <article className="max-w-full md:max-w-none">
                 <Separator className="my-4" />
-                <div className="prose prose-lg prose-p:mb-2 text-justify dark:prose-invert">
+                <div className="prose prose-lg prose-p:mb-2 text-justify dark:prose-invert max-w-3xl">
                     <div
                         className="prose-strong:text-gray-900 dark:prose-em:text-slate-400 dark:prose-strong:text-slate-400 prose-em:text-gray-900"
                         dangerouslySetInnerHTML={{ __html: article.content.html }}
                     />
                 </div>
-            </article>
+            </div>
             <hr className="mt-12" />
             <div className="flex justify-center py-6 lg:py-10">
                 <Link href="/" className={cn(buttonVariants({ variant: "ghost" }))}>
