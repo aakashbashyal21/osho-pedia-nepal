@@ -1,20 +1,21 @@
 import { BiographyItem } from "@/types";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { link } from "fs";
 
 type NewType = BiographyItem;
 
-const BiographySection = ({ title, subtitle, description, imageSrc, readMoreLink, reverse }: NewType) => {
+const BiographySection = ({ title, subtitle }: NewType) => {
   return (
-    <section className="flex justify-center py-2 px-4">
-      <div className="w-full flex flex-col items-center">
-        <div className={`w-full ${reverse ? 'order-1' : ''}`}>
-          <div className="text-container">
-            <h2 className="text-lg lg:text-3xl font-bold mb-2 text-gray-900">{title} {subtitle}</h2>
-            <h3 className="text-md lg:text-xl font-semibold mb-2 text-gray-800"></h3>
-            <a href={readMoreLink} className="text-blue-500 hover:underline">Read More</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="mb-8 text-center">
+      <Link href={`/article/${title}`}>
+        <Button variant="link" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black transition duration-300 inline-block cursor-pointer">
+          {title}
+        </Button>
+      </Link>
+      <p className="text-lg sm:text-xl md:text-2xl mt-2 uppercase">{subtitle.toUpperCase()}</p>
+    </div>
+
   );
 };
 

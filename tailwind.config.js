@@ -20,7 +20,7 @@ module.exports = {
       colors: {
         fontFamily: {
           inter: "var(--font-inter)",
-          "noto-sans-devanagari": "var(--font-noto-sans-devanagari)",
+          "archivo-narrow": "var(--font-archivo-narrow)",
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

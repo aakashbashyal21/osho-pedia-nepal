@@ -2,17 +2,17 @@ import Providers from '@/components/layout/providers';
 import { Toaster } from '@/components/ui/toaster';
 import '@uploadthing/react/styles.css';
 import type { Metadata } from 'next';
-import { Inter, Noto_Serif_Devanagari } from 'next/font/google';
+import { Inter, Archivo_Narrow} from 'next/font/google';
 import './globals.css';
 import { auth } from '@/auth';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
-const notoSansDevanagari = Noto_Serif_Devanagari({
+const archivoNarrow = Archivo_Narrow({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-noto-sans-devanagari'
+  variable: '--font-archivo-narrow'
 })
 
 
@@ -36,7 +36,7 @@ export default async function RootLayout({
       <body  className={cn(
           "min-h-screen bg-background antialiased",
           `${inter.className}`,
-          `${notoSansDevanagari.className}`
+          `${archivoNarrow.className}`
         )}
         >
         <Providers session={session}>

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { BlogItem } from "@/types";
-import { cn, formatDate } from "@/lib/utils";
+import { cn, formatDate, removeUnderscores } from "@/lib/utils";
 import { MotionDiv } from "../Motion";
 
 import {
@@ -57,7 +57,7 @@ export function BlogArtwork({
           <div className="flex items-center">
             {categories.map(category => (
               <span key={category} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2 mt-4 md:mt-0">
-                {category}
+                {removeUnderscores(category)}
               </span>
             ))}
           </div>

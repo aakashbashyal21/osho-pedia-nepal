@@ -1,20 +1,19 @@
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote/rsc'
-import { getPostBySlug, getAllPostSlugs } from '../../../lib/mdx';
+import BiographySection from '@/components/about-osho/BiographySection';
+import BreadCrumb from '@/components/breadcrumb';
+import { UserClient } from '@/components/tables/user-tables/client';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { users } from '@/constants/data';
+import { bioItem } from '@/constants/biography';
+export default function page() {
 
-export interface Props {
-  source: MDXRemoteSerializeResult;
-  frontmatter: {
-    title: string;
-    date: string;
-  };
-}
-export default async function PostPage() {
-  const { source, frontmatter }  = await getPostBySlug();
-console.log(source)
-  return (
-    <div className="pt-16">
-       <h1>{frontmatter.title}</h1>
-       <MDXRemote source={source} />
-    </div>
-  );
+    return (
+        <>
+<main className="container mx-auto px-4 sm:px-6 md:px-8 flex flex-col items-center justify-start">
+  {bioItem.map((item, index) => (
+    <BiographySection key={index} {...item} />
+  ))}
+</main>
+
+        </>
+    );
 }

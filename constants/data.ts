@@ -114,15 +114,15 @@ export type Employee = {
 
 export const navItems: NavItem[] = [
  {
-    title: 'OSHO',
+    title: 'Home',
     href: '/',
     icon: 'notebook',
-    label: 'Dashboard'
+    label: 'Home'
   },  
   {
-    title: 'Read Now',
-    href: '/read',
+    title: 'Osho',
+    href: '/about-osho',
     icon: 'dashboard',
-    label: 'Dashboard'
+    label: 'About Osho'
   },
 ];
