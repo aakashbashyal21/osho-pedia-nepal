@@ -1,3 +1,4 @@
+import { link } from 'fs';
 import {
   AlertTriangle,
   ArrowRight,
@@ -29,7 +30,8 @@ import {
   User2Icon,
   UserX2Icon,
   X,
-  Notebook 
+  Notebook,
+  Link 
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
@@ -62,6 +64,7 @@ export const Icons = {
   moon: Moon,
   laptop: Laptop,
   notebook:Notebook,
+  link:Link, 
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

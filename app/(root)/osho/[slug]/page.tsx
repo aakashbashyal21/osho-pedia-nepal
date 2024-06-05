@@ -12,7 +12,12 @@ import remarkToc from 'remark-toc';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import { Icons } from '@/components/icons';
+import { Element } from 'hast';
 
+interface AutolinkContentProps {
+  properties: Element['properties'];
+}
 type Params = {
   params: {
     slug: string;
@@ -32,7 +37,9 @@ export default async function PostPage({ params }: {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkToc],
-        rehypePlugins: [rehypeSlug,rehypeAutolinkHeadings]
+        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
+          behaviour: "append"
+        }]]
         // ... other options
       }
     },
