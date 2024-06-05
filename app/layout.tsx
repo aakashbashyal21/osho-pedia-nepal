@@ -7,6 +7,7 @@ import './globals.css';
 import { auth } from '@/auth';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import ScrollToTop from '@/components/ScrollTop';
 
 const inter = Inter({ subsets: ['latin'] });
 const archivoNarrow = Archivo_Narrow({
@@ -42,6 +43,7 @@ export default async function RootLayout({
         <Providers session={session}>
           <Toaster />
           {children}
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

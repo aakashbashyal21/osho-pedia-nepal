@@ -14,6 +14,7 @@ import {
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, Clock } from 'lucide-react';
+import { notFound } from 'next/navigation';
 
 interface ArticleDetailsProps {
     article: ArticleDetail | null;
@@ -32,7 +33,7 @@ type Props = {
 
 const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
     if (!article) {
-        return <div>No article to display</div>;
+        return notFound();
     }
 
     const readingTime = readTime(article.content.html).text;

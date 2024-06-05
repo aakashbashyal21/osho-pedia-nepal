@@ -29,7 +29,7 @@ export default function Header() {
             href="/about-osho"
             className="text-foreground transition-colors hover:text-foreground"
           >
-            Osho
+            Biography of Osho
           </Link>
         </nav>
         {/* <div className="flex-grow flex justify-center">
