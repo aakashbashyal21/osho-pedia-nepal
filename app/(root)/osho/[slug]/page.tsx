@@ -9,6 +9,9 @@ import { buttonVariants } from '@/components/ui/button';
 import readTime from 'reading-time';
 import { Separator } from '@/components/ui/separator';
 import remarkToc from 'remark-toc';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 type Params = {
   params: {
@@ -28,13 +31,14 @@ export default async function PostPage({ params }: {
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        remarkPlugins: [remarkToc],
+        remarkPlugins: [remarkGfm, remarkToc],
+        rehypePlugins: [rehypeSlug,rehypeAutolinkHeadings]
         // ... other options
       }
     },
 
   });
-console.log(content)
+  console.log(content)
   return (
     <article className="px-4 sm:px-6 md:px-8">
       <div className="relative max-w-3xl mx-auto">

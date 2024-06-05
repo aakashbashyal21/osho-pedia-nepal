@@ -16,7 +16,7 @@ const nextConfig = {
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
-    remarkPlugins: [remarkGfm, remarkToc],
+    remarkPlugins: [remarkGfm, [remarkToc, { heading: 'toc|table[ -]of[ -]contents?' }]],
     rehypePlugins: [
       rehypeSlug,
       [

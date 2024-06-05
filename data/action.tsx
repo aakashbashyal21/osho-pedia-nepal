@@ -150,7 +150,9 @@ export const getAllBlogList = async () => {
   const query = `
   query BlogLists($limit: Int!) {
       blogLists( first: $limit,orderBy: publishedAt_DESC) {
-        urlSlug
+        urlSlug,
+        title,
+        description
       }
     }
   `;

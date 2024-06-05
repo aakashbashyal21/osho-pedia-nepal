@@ -8,7 +8,7 @@ type NewType = BiographyItem;
 const BiographySection = ({ title, subtitle, urlSlug }: NewType) => {
   return (
     <div className="mb-8 text-center">
-      <Link href={`/about/${urlSlug}`}>
+      <Link href={`/osho/${urlSlug}`}>
         <Button variant="link" className="text-2xl sm:text-3xl md:text-4xl font-bold text-black transition duration-300 inline-block cursor-pointer dark:invert">
           {title}
         </Button>

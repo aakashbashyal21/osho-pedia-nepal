@@ -24,7 +24,14 @@ export default function Header() {
         <div className={cn('block lg:!hidden')}>
           <MobileSidebar />
         </div>
-
+        <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+          <Link
+            href="/about-osho"
+            className="text-foreground transition-colors hover:text-foreground"
+          >
+            Osho
+          </Link>
+        </nav>
         {/* <div className="flex-grow flex justify-center">
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
             <span className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-300">
