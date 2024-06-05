@@ -37,9 +37,7 @@ export default async function PostPage({ params }: {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkToc],
-        rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {
-          behaviour: "append"
-        }]]
+        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
         // ... other options
       }
     },
