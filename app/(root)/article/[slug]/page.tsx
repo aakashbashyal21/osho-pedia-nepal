@@ -1,7 +1,5 @@
 
 import BlogDetail from '@/components/Blogs/article-detail';
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/config/site";
 import { getBlogBySlug } from '@/data/action';
 import { absoluteUrl } from "@/lib/utils";

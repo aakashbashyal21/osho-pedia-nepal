@@ -1,8 +1,4 @@
 import BiographySection from '@/components/about-osho/BiographySection';
-import BreadCrumb from '@/components/breadcrumb';
-import { UserClient } from '@/components/tables/user-tables/client';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { users } from '@/constants/data';
 import { bioItem } from '@/constants/biography';
 export default function page() {
 
