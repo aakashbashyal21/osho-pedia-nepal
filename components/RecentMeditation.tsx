@@ -16,7 +16,7 @@ const RecentMeditation: React.FC<MeditationProps> = ({ meditationArticle }) => {
                 <Link className='' href={`/article/${post.urlSlug}`}>
                     <div key={index} className="flex justify-between items-center mb-4">
                         <div>
-                            <h3 className='hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 hover:text-black'>
+                            <h3 className='hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4'>
                                 {post.title}
                             </h3>
                             <p className="text-sm text-gray-600">{formatDate(post.createdAt)}</p>

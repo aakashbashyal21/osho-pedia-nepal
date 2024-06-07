@@ -36,7 +36,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                             />
                         </div>
                         <div className="p-4">
-                            <h2 className="text-2xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 hover:text-black">
+                            <h2 className="text-2xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4">
                                 {articles.featuredArticle.title}
                             </h2>
                             <p className="text-gray-600 mb-4 line-clamp-2">
@@ -68,7 +68,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                         />
                                     }
                                     <div className="space-y-2 flex-grow">
-                                        <h2 className="text-xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 hover:text-black">{article.title}</h2>
+                                        <h2 className="text-xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4">{article.title}</h2>
                                         <div className="flex items-center justify-between">
                                             <p className="text-gray-600">{formatDate(article.createdAt)}</p>
                                         </div>
