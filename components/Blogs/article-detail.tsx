@@ -55,7 +55,7 @@ const BlogDetail: React.FC<ArticleDetailsProps> = ({ article }) => {
                 </Link>
                 <div>
 
-                    <h1 className="mt-2 inline-block font-heading text-4xl leading-tight lg:text-5xl">
+                    <h1 className="mt-2 inline-block font-extrabold text-3xl sm:text-5xl md:text-5xl tracking-tight text-balance">
                         {article.title}
                     </h1>
                     <h2 className="mt-2 text-lg text-muted-foreground">

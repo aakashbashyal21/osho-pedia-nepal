@@ -36,7 +36,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                             />
                         </div>
                         <div className="p-4">
-                            <h2 className="text-2xl font-bold mb-2">
+                            <h2 className="text-2xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 hover:text-black">
                                 {articles.featuredArticle.title}
                             </h2>
                             <p className="text-gray-600 mb-4 line-clamp-2">
@@ -52,7 +52,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                 </div>
                 {/* Recent articles section */}
                 <div className="col-span-4 lg:col-span-2"> {/* Recent articles below feature article for medium devices */}
-                    <Button className='mb-2 text-lg' variant="link">Recent Post</Button>
+                    <h2 className="text-lg font-bold mb-4 border-l-4 border-purple-500 rounded-l-md pl-2">Recent Post</h2>
                     <div className="grid gap-2">
                         {articles.recentArticles.map((article, index) => (
                             <Link className="block rounded-lg overflow-hidden"
@@ -68,7 +68,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                         />
                                     }
                                     <div className="space-y-2 flex-grow">
-                                        <h2 className="text-xl font-bold mb-2">{article.title}</h2>
+                                        <h2 className="text-xl font-bold mb-2 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 hover:text-black">{article.title}</h2>
                                         <div className="flex items-center justify-between">
                                             <p className="text-gray-600">{formatDate(article.createdAt)}</p>
                                         </div>

@@ -59,7 +59,11 @@ export const getBlogList = async (page: number) => {
 
   const query = `
     query BlogLists($limit: Int!, $skip: Int!) {
-      blogLists(first: $limit, skip: $skip, orderBy: createdAt_DESC, where: { isFeatured: false }) {
+      blogLists(first: $limit, skip: $skip, orderBy: createdAt_DESC, where: { AND:
+      [
+        {categories_contains_none: [Meditation]}, 
+        {isFeatured: false}
+      ]}) {
         image {
           url
         }
@@ -98,6 +102,45 @@ export const getBlogList = async (page: number) => {
     throw new Error(`Error fetching blog list: ${error}`);
   }
 };
+
+export const getRecentMeditationList = async () => {
+  const limit = 10; // Fixed limit
+
+  const query = `
+    query BlogLists($limit: Int!) {
+      blogLists(first: $limit, orderBy: createdAt_DESC, where: { AND:
+      [
+        {categories_contains_some: [Meditation]}, 
+        {isFeatured: false}
+      ]}) {
+        image {
+          url
+        }
+        description
+        urlSlug
+        categories
+        title
+        createdAt
+      }
+    }
+  `;
+
+  const client = new GraphQLClient(endpoint);
+
+  try {
+
+    const data = await client.request<{ blogLists: BlogItem[] }>(query, {
+      limit
+    });
+
+    return data.blogLists;
+
+  } catch (error) {
+    throw new Error(`Error fetching blog list: ${error}`);
+  }
+};
+
+
 export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null> => {
   const query = `
     query BlogBySlug($slug: String!) {
