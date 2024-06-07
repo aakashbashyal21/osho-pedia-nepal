@@ -32,7 +32,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                 alt={articles.featuredArticle.title}
                                 height={768}
                                 width={768}
-                                className="w-full h-auto object-cover p-4 rounded-3xl"
+                                className="w-full h-auto object-cover p-4 rounded-3xl object-cover rounded-md transition-all hover:scale-105"
                             />
                         </div>
                         <div className="p-4">
@@ -52,7 +52,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                 </div>
                 {/* Recent articles section */}
                 <div className="col-span-4 lg:col-span-2"> {/* Recent articles below feature article for medium devices */}
-                    <h2 className="text-lg font-bold mb-4 border-l-4 border-purple-500 rounded-l-md pl-2">Recent Post</h2>
+                    <h2 className="text-2xl font-bold mb-4 border-l-4 border-purple-500 rounded-l-md pl-2">Recent Post</h2>
                     <div className="grid gap-2">
                         {articles.recentArticles.map((article, index) => (
                             <Link className="block rounded-lg overflow-hidden"
@@ -64,7 +64,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                                             src={article.image.url}
                                             alt={article.title}
                                             width={100}
-                                            height={200} className="rounded-md mr-4"
+                                            height={200} className="rounded-md mr-4 object-cover rounded-md transition-all hover:scale-105"
                                         />
                                     }
                                     <div className="space-y-2 flex-grow">
