@@ -1,9 +1,8 @@
 import { MDXRemote, MDXRemoteSerializeResult, compileMDX } from 'next-mdx-remote/rsc'
 import { getPostBySlug, POSTS_PATH } from '../../../../lib/mdx';
-import { useMDXComponents } from '../../mdx-components';
 import { serialize } from 'next-mdx-remote/serialize';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
+import { absoluteUrl, cn } from '@/lib/utils';
 import { ChevronLeft, Clock } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button';
 import readTime from 'reading-time';
@@ -14,6 +13,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { Icons } from '@/components/icons';
 import { Element } from 'hast';
+import { siteConfig } from '@/config/site';
 
 interface AutolinkContentProps {
   properties: Element['properties'];
@@ -23,27 +23,57 @@ type Params = {
     slug: string;
   };
 };
+
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+
+  const { content, frontmatter } = await getPostBySlug(params.slug); // Destructure frontMatter correctly here
+
+  if (content) {
+    const { title,description } = frontmatter;
+    const url = process.env.NEXT_PUBLIC_APP_URL;
+
+    const ogUrl = new URL(`${url}/api/og`)
+    ogUrl.searchParams.set("heading", title);
+    ogUrl.searchParams.set("type", siteConfig.name)
+    ogUrl.searchParams.set("mode", "light")
+    return {
+      title: title,
+      description: description,
+      openGraph: {
+        title: title,
+        description: description,
+        type: "article",
+        url: absoluteUrl(params.slug),
+        images: [
+          {
+            url: ogUrl.toString(),
+            width: 1200,
+            height: 630,
+            alt: title,
+          },
+        ],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: title,
+        description: description,
+        images: [ogUrl.toString()],
+      },
+    }
+  } else {
+    // Handle the case where article is null...
+  }
+
+
+}
+
+
 export default async function PostPage({ params }: {
   params: { slug: string };
 }) {
 
-
-  const source = await getPostBySlug(params.slug); // Destructure frontMatter correctly here
-  const components = useMDXComponents({});
-  const { content, frontmatter } = await compileMDX<{ title: string, subtitle: string, part: string }>({
-    source: source,
-    components: components,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        remarkPlugins: [remarkGfm, remarkToc],
-        rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
-        // ... other options
-      }
-    },
-
-  });
-  console.log(content)
+  const { content, frontmatter } = await getPostBySlug(params.slug); // Destructure frontMatter correctly here
   return (
     <article className="px-4 sm:px-6 md:px-8">
       <div className="relative max-w-3xl mx-auto">

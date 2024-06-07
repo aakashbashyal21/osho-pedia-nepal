@@ -2,11 +2,12 @@ import Providers from '@/components/layout/providers';
 import { Toaster } from '@/components/ui/toaster';
 import '@uploadthing/react/styles.css';
 import type { Metadata } from 'next';
-import { Inter, Archivo_Narrow} from 'next/font/google';
+import { Inter, Archivo_Narrow } from 'next/font/google';
 import './globals.css';
 import { auth } from '@/auth';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import ScrollToTop from '@/components/ScrollTop';
 
 const inter = Inter({ subsets: ['latin'] });
 const archivoNarrow = Archivo_Narrow({
@@ -33,15 +34,16 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <html lang="en" suppressHydrationWarning>
-      <body  className={cn(
-          "min-h-screen bg-background antialiased",
-          `${inter.className}`,
-          `${archivoNarrow.className}`
-        )}
-        >
+      <body className={cn(
+        "min-h-screen bg-background antialiased",
+        `${inter.className}`,
+        `${archivoNarrow.className}`
+      )}
+      >
         <Providers session={session}>
           <Toaster />
           {children}
+          <ScrollToTop />
         </Providers>
       </body>
     </html>

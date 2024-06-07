@@ -1,3 +1,4 @@
+import ScrollToTop from '@/components/ScrollTop';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Sidebar from '@/components/layout/sidebar';
@@ -19,7 +20,6 @@ export default function RootLayout({
         </header>
         <main className="flex-1">{children}</main>
         <Footer />
-
       </div>
     </>
   );
