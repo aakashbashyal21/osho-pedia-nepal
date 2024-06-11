@@ -25,6 +25,12 @@ const RecentMeditation: React.FC<MeditationProps> = ({ meditationArticle }) => {
                     </div>
                 </Link>
             ))}
+            <div className="flex justify-end mt-4">
+                <Link href={`/meditation`} className="text-black underline hover:text-black-700">
+                    Read More
+                </Link>
+            </div>
+
         </div>
     )
 }

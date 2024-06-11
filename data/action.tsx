@@ -7,7 +7,13 @@ import Link from 'next/link';
 
 // Ensure HYGRAPH_ENDPOINT is set or provide a default value
 const endpoint = process.env.HYGRAPH_ENDPOINT as string;
-const MAX_LIMIT = 8;
+const MAX_LIMIT = 8;// Define the type for the response
+interface BlogListsResponse {
+  blogLists: BlogItem[];
+  _allBlogListsMeta: {
+    count: number;
+  };
+}
 
 export const getFeatureList = async () => {
   const limit = 4; // Fixed limit for recent articles
@@ -139,6 +145,54 @@ export const getRecentMeditationList = async () => {
     throw new Error(`Error fetching blog list: ${error}`);
   }
 };
+
+export const getAllMeditationList = async () => {
+  const limit = 10; // Page size
+  let allBlogLists: BlogItem[] = [];
+  let hasNextPage = true;
+  let skip = 0; // Start from the first record
+
+  const query = `
+    query BlogLists($limit: Int!, $skip: Int!) {
+      blogLists(first: $limit, skip: $skip, orderBy: createdAt_ASC where: { AND:
+      [
+        {categories_contains_some: [Meditation]}, 
+        {isFeatured: false}
+      ]}) {
+        image {
+          url
+        }
+        description
+        urlSlug
+        categories
+        title
+        createdAt
+      }
+    }
+  `;
+
+  const client = new GraphQLClient(endpoint);
+
+  try {
+    while (hasNextPage) {
+      const data = await client.request<BlogListsResponse>(query, { limit, skip });
+      const blogLists = data.blogLists;
+
+      if (blogLists.length > 0) {
+        allBlogLists = [...allBlogLists, ...blogLists];
+        skip += limit;
+      } else {
+        // If there are no more blog lists, exit the loop
+        hasNextPage = false;
+      }
+    }
+
+    return allBlogLists;
+  } catch (error) {
+    throw new Error(`Error fetching blog list: ${error}`);
+  }
+};
+
 
 
 export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null> => {

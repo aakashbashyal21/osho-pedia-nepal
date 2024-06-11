@@ -31,6 +31,12 @@ export default function Header() {
           >
             Biography of Osho
           </Link>
+          <Link
+            href="/meditation"
+            className="text-foreground transition-colors hover:text-foreground"
+          >
+            Meditation
+          </Link>
         </nav>
         {/* <div className="flex-grow flex justify-center">
           <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
