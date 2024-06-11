@@ -55,8 +55,8 @@ export function BlogArtwork({
       <Card className="flex flex-col md:flex-row justify-between h-full bg-white-0 border-none shadow-none px-4">
         <div className="flex flex-col justify-between md:w-2/3">
           <div className="flex items-center">
-            {categories.map(category => (
-              <span key={category} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2 mt-4 md:mt-0">
+            {categories.map((category, index) => (
+              <span key={index} className="inline-flex items-center justify-center text-center bg-gray-100 rounded-md py-1 px-2 text-sm text-gray-600 mr-2 mt-4 md:mt-0">
                 {removeUnderscores(category)}
               </span>
             ))}

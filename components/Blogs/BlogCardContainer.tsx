@@ -7,7 +7,7 @@ import RecentMeditation from '../RecentMeditation';
 
 async function BlogCardContainer() {
     const blogData = await getBlogList(1);
-    const recentMeditation = await getRecentMeditationList();
+    const { blogs, totalCount } = await getRecentMeditationList(1);
 
     return (
         <main className="container mx-auto px-4 py-8">
@@ -17,7 +17,7 @@ async function BlogCardContainer() {
                     <LoadMore />
                 </div>
                 <div className="lg:col-span-1 md:col-span-1 order-1 lg:order-2">
-                    <RecentMeditation meditationArticle={recentMeditation} />
+                    <RecentMeditation meditationArticle={blogs} />
                 </div>
             </div>
         </main>

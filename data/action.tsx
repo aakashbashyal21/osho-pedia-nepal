@@ -109,12 +109,13 @@ export const getBlogList = async (page: number) => {
   }
 };
 
-export const getRecentMeditationList = async () => {
+export const getRecentMeditationList = async (page: number) => {
   const limit = 10; // Fixed limit
+  const skip = (page - 1) * limit;
 
   const query = `
-    query BlogLists($limit: Int!) {
-      blogLists(first: $limit, orderBy: createdAt_DESC, where: { AND:
+    query BlogLists($limit: Int!, $skip: Int!) {
+      blogLists(first: $limit, skip: $skip, orderBy: createdAt_DESC, where: { AND:
       [
         {categories_contains_some: [Meditation]}, 
         {isFeatured: false}
@@ -128,23 +129,29 @@ export const getRecentMeditationList = async () => {
         title
         createdAt
       }
+      blogListsConnection(where: { AND: [{ categories_contains_some: [Meditation] }, { isFeatured: false }] }) {
+        aggregate {
+          count
+        }
+      }
     }
   `;
 
   const client = new GraphQLClient(endpoint);
 
   try {
-
-    const data = await client.request<{ blogLists: BlogItem[] }>(query, {
-      limit
+    const data = await client.request<{ blogLists: BlogItem[], blogListsConnection: { aggregate: { count: number } } }>(query, {
+      limit,
+      skip,
     });
 
-    return data.blogLists;
-
+    return { blogs: data.blogLists, totalCount: data.blogListsConnection.aggregate.count };
   } catch (error) {
     throw new Error(`Error fetching blog list: ${error}`);
   }
 };
+
+
 
 export const getAllMeditationList = async () => {
   const limit = 10; // Page size
