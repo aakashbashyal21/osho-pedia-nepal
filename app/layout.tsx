@@ -20,6 +20,8 @@ const archivoNarrow = Archivo_Narrow({
 
 export const metadata: Metadata = {
   title: "Osho Pedia",
+  metadataBase: new URL(siteConfig.url),
+
   description: siteConfig.description,
   icons: {
     icon: '/logo.svg'
