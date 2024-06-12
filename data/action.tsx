@@ -269,8 +269,10 @@ export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null>
   }
 };
 
+const delay = (ms: any) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const getAllBlogList = async () => {
-  const limit = 10; // Page size
+  const limit = 50; // Page size
   let allBlogLists: BlogItem[] = [];
   let hasNextPage = true;
   let skip = 0; // Start from the first record
@@ -288,6 +290,9 @@ export const getAllBlogList = async () => {
 
   try {
     while (hasNextPage) {
+
+      await delay(200);
+
       const data = await client.request<BlogListsResponse>(query, { limit, skip });
       const blogLists = data.blogLists;
 
