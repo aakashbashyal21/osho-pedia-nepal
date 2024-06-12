@@ -8,6 +8,7 @@ import { auth } from '@/auth';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import ScrollToTop from '@/components/ScrollTop';
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ['latin'] });
 const archivoNarrow = Archivo_Narrow({
@@ -65,6 +66,7 @@ export default async function RootLayout({
           <Toaster />
           {children}
           <ScrollToTop />
+          <Analytics />
         </Providers>
       </body>
     </html>
