@@ -63,7 +63,7 @@ export function BlogArtwork({
           </div>
           <CardHeader className="px-0">
 
-            <CardTitle className="font-bold text-2xl mb-1 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4">{title}</CardTitle>
+            <CardTitle className="font-normal text-2xl mb-1 hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4">{title}</CardTitle>
             <CardDescription className="text-base text-gray-700 mb-2 line-clamp-3 dark:text-slate-400">{description}</CardDescription>
           </CardHeader>
           <CardFooter className="flex items-center justify-between px-0">

@@ -13,7 +13,7 @@ export default async function HomeContainer() {
     const featureArticle = await getFeatureList();
 
     return (
-        <>
+        <>        
             <FeatureArticle articles={featureArticle} />
             <BlogCardContainer />
         </>
