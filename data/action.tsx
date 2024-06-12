@@ -109,6 +109,27 @@ export const getBlogList = async (page: number) => {
   }
 };
 
+export const getRecentMeditationListCard = async (page: number) => {
+
+  const { blogs } = await getRecentMeditationList(page);
+
+  return blogs.map((blog: BlogItem, index: number) => (
+    <Link key={blog.title} href={`/article/${blog.urlSlug}`} className="group">
+      <div className="w-full">
+        <BlogArtwork
+          key={blog.title}
+          blog={blog}
+          className="w-full"
+          aspectRatio="portrait"
+          index={index}
+        />
+      </div>
+    </Link>
+  ));
+
+
+}
+
 export const getRecentMeditationList = async (page: number) => {
   const limit = 10; // Fixed limit
   const skip = (page - 1) * limit;
@@ -249,11 +270,14 @@ export const getBlogBySlug = async (slug: string): Promise<ArticleDetail | null>
 };
 
 export const getAllBlogList = async () => {
-  const limit = 100; // Fixed limit
+  const limit = 10; // Page size
+  let allBlogLists: BlogItem[] = [];
+  let hasNextPage = true;
+  let skip = 0; // Start from the first record
 
   const query = `
-  query BlogLists($limit: Int!) {
-      blogLists( first: $limit,orderBy: publishedAt_DESC) {
+    query BlogLists($limit: Int!, $skip: Int!) {
+      blogLists(first: $limit, skip: $skip, orderBy: publishedAt_DESC) {
         urlSlug,
         title,
         description
@@ -261,13 +285,24 @@ export const getAllBlogList = async () => {
     }
   `;
   const client = new GraphQLClient(endpoint);
+
   try {
-    const data = await client.request<{ blogLists: BlogItem[] }>(query, {
-      limit
-    });
+    while (hasNextPage) {
+      const data = await client.request<BlogListsResponse>(query, { limit, skip });
+      const blogLists = data.blogLists;
 
-    return data.blogLists;
+      console.log(`Fetched ${blogLists.length} items with skip=${skip}`);
 
+      if (blogLists.length > 0) {
+        allBlogLists = [...allBlogLists, ...blogLists];
+        skip += limit;
+      } else {
+        // If there are no more blog lists, exit the loop
+        hasNextPage = false;
+      }
+    }
+
+    return allBlogLists;
   } catch (error) {
     throw new Error(`Error fetching blog list: ${error}`);
   }

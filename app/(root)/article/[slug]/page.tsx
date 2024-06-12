@@ -1,4 +1,6 @@
 
+import { unstable_noStore as noStore } from 'next/cache';
+
 import BlogDetail from '@/components/Blogs/article-detail';
 import { siteConfig } from "@/config/site";
 import { getBlogBySlug } from '@/data/action';

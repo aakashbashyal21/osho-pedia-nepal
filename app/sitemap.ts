@@ -1,13 +1,14 @@
+import { unstable_noStore as noStore } from 'next/cache';
+
 
 import { MetadataRoute } from "next";
 import { bioItem } from '@/constants/biography';
-import { getAllBlogList } from "@/data/action";
+import { getAllBlogList, getAllMeditationList } from "@/data/action";
 import { title } from "process";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const URL = process.env.NEXT_PUBLIC_APP_URL;
+   const URL = process.env.NEXT_PUBLIC_APP_URL;
 
   const blogList = await getAllBlogList();
-
   const pages = [
     {
       url: `${URL}`, // Home Page
