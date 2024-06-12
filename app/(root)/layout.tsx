@@ -2,6 +2,8 @@ import ScrollToTop from '@/components/ScrollTop';
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import Sidebar from '@/components/layout/sidebar';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
 
 export default function RootLayout({
@@ -19,6 +21,8 @@ export default function RootLayout({
         </header>
         <main className="flex-1">{children}</main>
         <Footer />
+        <SpeedInsights />
+        <Analytics />
       </div>
     </>
   );

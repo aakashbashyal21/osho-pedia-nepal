@@ -62,13 +62,13 @@ export default async function RootLayout({
         `${archivoNarrow.className}`
       )}
       >
+        
         <Providers session={session}>
           <Toaster />
           {children}
           <ScrollToTop />
-          <SpeedInsights />
-          <Analytics />
         </Providers>
+
       </body>
     </html>
   );
