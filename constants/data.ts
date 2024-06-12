@@ -125,4 +125,10 @@ export const navItems: NavItem[] = [
     icon: 'dashboard',
     label: 'About Osho'
   },
+  {
+    title: 'Meditation',
+    href: '/meditation',
+    icon: 'meditation',
+    label: 'About Meditation'
+  },
 ];
