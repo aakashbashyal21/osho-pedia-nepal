@@ -5,8 +5,9 @@ import { MetadataRoute } from "next";
 import { bioItem } from '@/constants/biography';
 import { getAllBlogList, getAllMeditationList } from "@/data/action";
 import { title } from "process";
+import { url } from 'inspector';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-   const URL = process.env.NEXT_PUBLIC_APP_URL;
+  const URL = process.env.NEXT_PUBLIC_APP_URL;
 
   const blogList = await getAllBlogList();
   const pages = [
@@ -21,6 +22,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       description: `Biography of Osho page provides a comprehensive overview of the life and teachings of Osho, also known as Bhagwan Shree Rajneesh. 
           It likely covers key events from his early life in India to his rise as a spiritual leader, his establishment of the Rajneesh movement, and his controversial legacy. 
           Additionally, it may delve into his philosophy, meditation techniques, and impact on spirituality and culture worldwide.`
+    },
+    {
+      url: `${URL}meditation`
     }
   ];
 

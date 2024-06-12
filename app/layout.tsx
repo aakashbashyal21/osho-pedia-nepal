@@ -22,8 +22,29 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   icons: {
     icon: '/logo.svg'
-  }
-
+  },
+  keywords: [
+    "Meditation",
+    "Mindfulness",
+    "Spirituality",
+    "Personal Growth",
+    "Philosophy",
+  ],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [`${siteConfig.url}/og.jpg`],
+    creator: "oshopedia",
+  },
 };
 
 export default async function RootLayout({
