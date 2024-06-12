@@ -1,7 +1,7 @@
 import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
-    name: "Osho Pedia Nepal",
+    name: "Osho Pedia",
     heroSectionTitle: "Discover the wisdom of OSHO for the self-transformation",
     description: `Discover the wisdom of OSHO for the self-transformation`,
     url: "https://oshopedia.online",
