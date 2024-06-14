@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
                 url: `${image?.url}`,
                 images: [
                     {
-                        url: ogUrl.toString(),
+                        url: `${image?.url}`,
                         width: 1200,
                         height: 630,
                         alt: title,

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
   description: siteConfig.description,
   icons: {
-    icon: '/logo.svg'
+    icon: '/favicon.ico'
   },
   keywords: [
     "Meditation",
