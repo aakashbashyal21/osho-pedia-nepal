@@ -28,7 +28,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                 <div className="col-span-4 lg:col-span-2"> {/* Feature article on the left for larger devices */}
 
                     <div className="pl-4">
-                        <h2 className="pl-4 text-2xl font-bold mb-4 border-l-4 border-purple-500 rounded-l-md">Feature Article</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-red-900 underline underline-offset-8">Meditation of the week</h2>
                     </div>
 
                     <Link className="block rounded-lg overflow-hidden" href={`/article/${articles.featuredArticle.urlSlug}`}>
@@ -59,7 +59,7 @@ const FeatureArticle = ({ articles }: ArticlesProps) => {
                 {/* Recent articles section */}
                 <div className="col-span-4 lg:col-span-2"> {/* Recent articles below feature article for medium devices */}
                     <div className="pl-4">
-                        <h2 className="pl-4 text-2xl font-bold mb-4 border-l-4 border-purple-500 rounded-l-md">Recent Post</h2>
+                        <h2 className="text-2xl font-bold mb-4  text-red-900 underline underline-offset-8">Recent Post</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 

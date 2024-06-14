@@ -11,12 +11,12 @@ type MeditationProps = {
 const RecentMeditation: React.FC<MeditationProps> = ({ meditationArticle }) => {
     return (
         <div className="p-2">
-            <h2 className="text-2xl font-bold mb-4 border-l-4 border-purple-500 rounded-l-md pl-2">Meditation</h2>
+            <h2 className="text-2xl font-bold mb-4 text-red-900 underline underline-offset-8">Meditation</h2>
             {meditationArticle.map((post, index) => (
                 <Link key={index} className='' href={`/article/${post.urlSlug}`}>
                     <div key={index} className="flex justify-between items-center mb-4">
                         <div>
-                            <h3 className='hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4'>
+                            <h3 className='hover:text-black-700 hover:underline decoration-yellow-500 hover:underline-offset-4 font-normal text-lg'>
                                 {post.title}
                             </h3>
                             <p className="text-sm text-gray-600">{formatDate(post.createdAt)}</p>
