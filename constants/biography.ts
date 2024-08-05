@@ -99,7 +99,7 @@ export const bioItem: BiographyItem[] = [
     description: `Born on December 11, 1931, as a eldest children among the children of a Jain cloth merchant. 
     The stories of his early years depict him as a  independent and rebellious child, who questions all social, religious and philosophical beliefs.`,
     imageSrc: '/osho-photo/osho-birth-house.jpg',
-    urlSlug: 'poona-ii',
+    urlSlug: 'poona-two',
     reverse: false,
   },
   {
